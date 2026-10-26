@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YCH Live - Free & Open Global Research Platform for Journalists, Analysts and the Public</title>
+  <meta name="description" content="An open-source intelligence research platform. Ten sectors in one interface: 250,000+ publicly accessible cameras with AI detection, username OSINT, crypto tracing across 22+ blockchains, NetScan network mapper, Hawk image geolocation, Skywave radio spectrum, Linkscope, Catalogue public records, and Watchtower global situational awareness. 100% Free & Open." />
+  <meta name="theme-color" content="#050505" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M31,16 L18.4,17 L21.66,21.66 L17,18.4 L16,31 L15,18.4 L10.34,21.66 L13.6,17 L1,16 L13.6,15 L10.34,10.34 L15,13.6 L16,1 L17,13.6 L21.66,10.34 L18.4,15 Z' fill='%23ffffff'/%3E%3C/svg%3E" />
+  
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="bg-fx" aria-hidden="true"></div>
+  <div class="ns-grain" aria-hidden="true"></div>
+  <div class="ns-progress" aria-hidden="true"></div>
+
+  <!-- NAVIGATION -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand" aria-label="YCH Live Home">
+        <span class="brand-mark">
+          <svg viewBox="0 0 32 32" width="28" height="28" fill="#fff"><path d="M31,16 L18.4,17 L21.66,21.66 L17,18.4 L16,31 L15,18.4 L10.34,21.66 L13.6,17 L1,16 L13.6,15 L10.34,10.34 L15,13.6 L16,1 L17,13.6 L21.66,10.34 L18.4,15 Z"/></svg>
+        </span>
+        <span class="brand-word">YCH LIVE</span>
+        <span class="free-tag">100% FREE</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="#globe">Globe</a>
+        <a href="#username-search">Identity</a>
+        <a href="#wallet-trace">Crypto</a>
+        <a href="#netscan-target">NetScan</a>
+        <a href="#hawk-verify">Hawk</a>
+        <a href="#sky-freq">Skywave</a>
+        <a href="#catalogue">Catalogue</a>
+        <a href="#watchtower">Watchtower</a>
+        <a href="#cases">Cases</a>
+        <a href="#features">Sectors</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="panel.html" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><path d="M14 9l3 3-3 3"/></svg>
+          Open Free Panel
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Open mobile menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="container">
+        <a href="#globe">Globe</a>
+        <a href="#username-search">Identity OSINT</a>
+        <a href="#wallet-trace">Crypto Tracing</a>
+        <a href="#netscan-target">NetScan</a>
+        <a href="#hawk-verify">Hawk Geolocation</a>
+        <a href="#sky-freq">Skywave Radio</a>
+        <a href="#catalogue">Catalogue</a>
+        <a href="#watchtower">Watchtower</a>
+        <a href="#cases">Cases Board</a>
+        <a href="panel.html" class="btn btn-green btn-block" style="margin-top:16px;">Launch Free Research Console &rarr;</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-mark-bg" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="100%" height="100%" fill="#fff"><path d="M31,16 L18.4,17 L21.66,21.66 L17,18.4 L16,31 L15,18.4 L10.34,21.66 L13.6,17 L1,16 L13.6,15 L10.34,10.34 L15,13.6 L16,1 L17,13.6 L21.66,10.34 L18.4,15 Z"/></svg>
+      </div>
+
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow">
+              <span class="eyebrow-badge">FREE & UNRESTRICTED</span>
+              <span>Open-Source Intelligence Platform</span>
+            </div>
+
+            <h1>Research the world<span class="d">in real time.</span></h1>
+
+            <p class="hero-sub">
+              An unrestricted research platform built for journalists, law enforcement, cybersecurity researchers and the public. 
+              Browse 250,000+ publicly accessible cameras on a hardware-accelerated 3D globe with AI YOLOv8 class detection. Trace cryptocurrency flows across 22+ blockchains. Scan usernames across 50+ social networks. Map network infrastructure, verify photograph provenance with solar angles, scan radio frequencies, and monitor global hazards in real time.
+            </p>
+
+            <div class="hero-free-callout">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span><b>100% Free Forever</b> &mdash; No subscriptions, no paywalls, no credit cards required.</span>
+            </div>
+
+            <div class="hero-cta">
+              <a href="panel.html" class="btn btn-green btn-lg">
+                Launch Research Console
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+              </a>
+              <a href="#preview" class="btn btn-ghost btn-lg">
+                Interactive Preview
+              </a>
+              <a href="#features" class="btn btn-ghost btn-lg">
+                Explore Sectors
+              </a>
+            </div>
+          </div>
+
+          <!-- 3D WebGL Globe Centerpiece -->
+          <div class="hero-visual">
+            <div class="ns-globe-wrap">
+              <canvas id="northstar-globe" aria-label="Interactive 3D Earth Globe"></canvas>
+
+              <div class="ns-hud" aria-hidden="true">
+                <span class="ns-corner ns-c-tl"></span>
+                <span class="ns-corner ns-c-tr"></span>
+                <span class="ns-corner ns-c-bl"></span>
+                <span class="ns-corner ns-c-br"></span>
+
+                <div class="ns-hud-tl">
+                  <span class="ns-live-dot"></span>
+                  <span>ONLINE // GLOBAL RECON</span>
+                </div>
+                <div class="ns-hud-tr">SCAN&nbsp;<span data-ns-scan>94%</span></div>
+
+                <div class="ns-reticle" data-ns-reticle>
+                  <span class="ns-ret-ring"></span>
+                </div>
+
+                <div class="ns-readout" data-ns-readout>
+                  <div class="ns-ro-id" data-ns-id>CAM-01 // NEW YORK</div>
+                  <div class="ns-ro-co" data-ns-co>40.758N 73.985W</div>
+                  <div class="ns-ro-st"><i></i>STREAMING 1080p &middot; YOLOv8</div>
+                </div>
+              </div>
+
+              <div class="globe-legend">
+                <span><span class="lg-dot lg-live"></span>Live Stream</span>
+                <span><span class="lg-dot lg-lapse"></span>Timelapse</span>
+                <span style="color:#00ff88;"><span class="lg-dot" style="background:#00f0ff;"></span>Uplink Active</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE TELEMETRY TICKER -->
+    <div data-ns-ticker></div>
+
+    <!-- STATS SUMMARY -->
+    <section class="container" style="margin-top: 50px;">
+      <div class="stats-card">
+        <div class="stat">
+          <div class="num">250,000+</div>
+          <div class="lbl">Public Global Cameras</div>
+        </div>
+        <div class="stat">
+          <div class="num">22+</div>
+          <div class="lbl">Supported Blockchains</div>
+        </div>
+        <div class="stat">
+          <div class="num">10 Sectors</div>
+          <div class="lbl">Unified Intelligence Tools</div>
+        </div>
+        <div class="stat">
+          <div class="num">$0.00</div>
+          <div class="lbl">100% Free For Everyone</div>
+        </div>
+      </div>
+      <p class="scale-claim">
+        <b>An unrestricted, community-accessible OSINT platform.</b> Visual camera feeds, identity profiling, blockchain ledger tracking, network mapping, and real-time hazard matrix unified in a single, high-performance interface.
+      </p>
+    </section>
+
+    <!-- INTERACTIVE DEMO SANDBOX PREVIEW -->
+    <section class="preview-section" id="preview">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">
+            <span class="eyebrow-badge">LIVE SANDBOX</span>
+            <span>Interactive Simulator</span>
+          </div>
+          <h2>Experience the tools directly in your browser</h2>
+          <p>Switch between visual feeds, crypto tracking, and username intelligence previews below or jump directly into the full console.</p>
+        </div>
+
+        <div class="preview-frame">
+          <div class="preview-toolbar">
+            <div class="preview-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="preview-tabs">
+              <button class="preview-tab-btn active" data-mode="camera">Camera Feed (YOLOv8)</button>
+              <button class="preview-tab-btn" data-mode="crypto">Crypto Tracing Graph</button>
+              <button class="preview-tab-btn" data-mode="osint">Username OSINT</button>
+            </div>
+            <div>
+              <a href="panel.html" class="btn btn-green btn-sm">Open Full Console &rarr;</a>
+            </div>
+          </div>
+
+          <div class="preview-screen" id="previewScreenView">
+            <div class="cam-screen-view">
+              <canvas id="landingPreviewCanvas" class="cam-feed-canvas"></canvas>
+              <div class="cam-overlay-hud">
+                <span class="cam-rec-badge">REC // CAM-01</span>
+                <span style="color:#00ff88;font-family:var(--font-mono);">FPS: 60 &middot; 4K ULTRA &middot; YOLOv8x ACTIVE</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="preview-caption">
+            <span>YCH LIVE // OPEN DEMONSTRATOR &middot; 60 FPS BROWSER PLAYBACK</span>
+            <span>Zero Install &middot; Runs Entirely in Your Browser</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NINE CORE SECTORS + CASES -->
+    <section class="pad" id="features">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">
+            <span class="eyebrow-badge">CORE CAPABILITIES</span>
+            <span>Ten Research Sectors</span>
+          </div>
+          <h2>Visual, identity, financial, network and signals research</h2>
+          <p>Every tool is operational, fully interactive, and free to use without restrictions.</p>
+        </div>
+
+        <div class="feature-list">
+          <!-- Sector 1 -->
+          <details class="sector-block" id="globe" open>
+            <summary>
+              <span class="sector-count">SECTOR 01</span>
+              <span class="sector-label">Camera Globe &amp; Visual Feeds</span>
+              <span class="sector-tagline">&mdash; 250,000+ Public Webcams with AI Detection</span>
+              <svg class="sector-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="sector-body">
+              <div class="frow">
+                <div class="frow-head">
+                  <div class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><line x1="3" y1="12" x2="21" y2="12"/></svg></div>
+                  <h3>The whole planet, one click away</h3>
+                </div>
+                <p>Every camera is an active marker on a real-time WebGL 3D globe. Click on New York, Tokyo, London, or Venice to lock target coordinates and stream live video.</p>
+              </div>
+              <div class="frow">
+                <div class="frow-head">
+                  <div class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8.5 V6 a2 2 0 0 1 2-2 h2.5"/><path d="M15.5 4 H18 a2 2 0 0 1 2 2 v2.5"/><path d="M20 15.5 V18 a2 2 0 0 1-2 2 h-2.5"/><path d="M8.5 20 H6 a2 2 0 0 1-2-2 v-2.5"/><circle cx="12" cy="12" r="2.6"/></svg></div>
+                  <h3>Understand what you're watching</h3>
+                </div>
+                <p>Real-time YOLOv8 machine vision detects vehicles, pedestrians, boats, and license plates locally in your browser with bounding box confidence overlays.</p>
+              </div>
+              <div style="margin-top:20px;">
+                <a href="panel.html#sector-globe" class="btn btn-primary">Open Camera Globe in Console &rarr;</a>
+              </div>
+            </div>
+          </details>
+
+          <!-- Sector 2 -->
+          <details class="sector-block" id="username-search">
+            <summary>
+              <span class="sector-count">SECTOR 02</span>
+              <span class="sector-label">Username Research (Identity OSINT)</span>
+              <span class="sector-tagline">&mdash; Multi-Platform Social &amp; Code Profile Discovery</span>
+              <svg class="sector-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="sector-body">
+              <div class="frow">
+                <div class="frow-head">
+                  <div class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="7" r="3"/><path d="M7 11c-1-1.5-2-3.5-2-5 0-3.3 2.7-6 6-6s6 2.7 6 6c0 1.5-1 3.5-2 5"/><path d="M7 20h10c1.1 0 2-.9 2-2v-3c0-2.2-2.2-4-5-4h-4c-2.8 0-5 1.8-5 4v3c0 1.1.9 2 2 2z"/></svg></div>
+                  <h3>Cross-examine any handle across 50+ networks</h3>
+                </div>
+                <p>Input a handle and YCH Live queries GitHub, Reddit, Twitter/X, Telegram, YouTube, Steam, and Wikipedia simultaneously, providing direct profile links and status verification.</p>
+              </div>
+              <div style="margin-top:20px;">
+                <a href="panel.html#sector-username" class="btn btn-primary">Launch Username OSINT Tool &rarr;</a>
+              </div>
+            </div>
+          </details>
+
+          <!-- Sector 3 -->
+          <details class="sector-block" id="wallet-trace">
+            <summary>
+              <span class="sector-count">SECTOR 03</span>
+              <span class="sector-label">Crypto Tracing &amp; Fund Flows</span>
+              <span class="sector-tagline">&mdash; Multi-Chain Blockchain Ledger Investigation</span>
+              <svg class="sector-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="sector-body">
+              <div class="frow">
+                <div class="frow-head">
+                  <div class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20"/><circle cx="17.5" cy="14.5" r="1.5"/></svg></div>
+                  <h3>Follow the money hop-by-hop on an interactive canvas</h3>
+                </div>
+                <p>Map transactions across Bitcoin, Ethereum, Solana, and EVM chains. Flag known exchange off-ramps (Binance, Coinbase) and mixer contracts (Tornado Cash).</p>
+              </div>
+              <div style="margin-top:20px;">
+                <a href="panel.html#sector-crypto" class="btn btn-primary">Launch Crypto Tracing Canvas &rarr;</a>
+              </div>
+            </div>
+          </details>
+
+          <!-- Sector 4 -->
+          <details class="sector-block" id="netscan-target">
+            <summary>
+              <span class="sector-count">SECTOR 04</span>
+              <span class="sector-label">NetScan Network Recon</span>
+              <span class="sector-tagline">&mdash; IP, Domain, DNS, Ports, and Tor .onion Verification</span>
+              <svg class="sector-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="sector-body">
+              <div class="frow">
+                <div class="frow-head">
+                  <div class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="5.5" r="2"/></svg></div>
+                  <h3>Know who owns and operates a server instantly</h3>
+                </div>
+                <p>Resolve DNS-over-HTTPS records (A, AAAA, MX, TXT, NS), inspect ASN registry owners, review exposed ports (80, 443, 22), TLS certificate issuers, and test cryptographic Tor .onion v3 addresses.</p>
+              </div>
+              <div style="margin-top:20px;">
+                <a href="panel.html#sector-netscan" class="btn btn-primary">Open NetScan in Console &rarr;</a>
+              </div>
+            </div>
+          </details>
+
+          <!-- Sector 5 -->
+          <details class="sector-block" id="hawk-verify">
+            <summary>
+              <span class="sector-count">SECTOR 05</span>
+              <span class="sector-label">Hawk Image Geolocation &amp; Provenance</span>
+              <span class="sector-tagline">&mdash; EXIF Metadata, GPS Maps &amp; Solar Shadow Verification</span>
+              <svg class="sector-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="sector-body">
+              <div class="frow">
+                <div class="frow-head">
+                  <div class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 8.5c3.2-1.1 6-0.6 8.2 1.4"/><path d="M22 8.5c-3.2-1.1-6-0.6-8.2 1.4"/><circle cx="12" cy="12" r="3"/></svg></div>
+                  <h3>Prove where and when a photograph was taken</h3>
+                </div>
+                <p>Upload an image to extract embedded EXIF coordinates, camera gear details, exposure timestamps, and calculate solar azimuth and elevation to verify true shadow angles.</p>
+              </div>
+              <div style="margin-top:20px;">
+                <a href="panel.html#sector-hawk" class="btn btn-primary">Launch Hawk Geolocation &rarr;</a>
+              </div>
+            </div>
+          </details>
+
+          <!-- Sector 6 -->
+          <details class="sector-block" id="sky-freq">
+            <summary>
+              <span class="sector-count">SECTOR 06</span>
+              <span class="sector-label">Skywave Radio Spectrum (SDR)</span>
+              <span class="sector-tagline">&mdash; WebSDR Frequency Bands &amp; Waterfall Spectrogram</span>
+              <svg class="sector-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="sector-body">
+              <div class="frow">
+                <div class="frow-head">
+                  <div class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h3l3-7 4 14 3-7h5"/></svg></div>
+                  <h3>Tune into the global radio spectrum in real time</h3>
+                </div>
+                <p>Tune through VHF Aviation, Coastal Maritime Distress (156.800 MHz), Shortwave HF broadcasters, and amateur radio with live Web Audio synthesizer emulation and waterfall spectrogram.</p>
+              </div>
+              <div style="margin-top:20px;">
+                <a href="panel.html#sector-skywave" class="btn btn-primary">Open Skywave Radio Tuner &rarr;</a>
+              </div>
+            </div>
+          </details>
+
+          <!-- Sector 7 -->
+          <details class="sector-block" id="linkscope">
+            <summary>
+              <span class="sector-count">SECTOR 07</span>
+              <span class="sector-label">Linkscope Telemetry &amp; Link Analytics</span>
+              <span class="sector-tagline">&mdash; Lawful Click Telemetry &amp; Network Logging</span>
+              <svg class="sector-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="sector-body">
+              <div class="frow">
+                <div class="frow-head">
+                  <div class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 13a5 5 0 0 0 7.1 0l2.1-2.1a5 5 0 0 0-7.1-7.1L10.9 5"/><path d="M14 11a5 5 0 0 0-7.1 0l-2.1 2.1a5 5 0 0 0 7.1 7.1l1.2-1.2"/></svg></div>
+                  <h3>Generate tracking links for authorized research</h3>
+                </div>
+                <p>Create decoy research URLs and inspect real-time visit telemetry: IP lookup, ISP, device type, operating system, screen dimensions, and referral source.</p>
+              </div>
+              <div style="margin-top:20px;">
+                <a href="panel.html#sector-linkscope" class="btn btn-primary">Open Linkscope Tool &rarr;</a>
+              </div>
+            </div>
+          </details>
+
+          <!-- Sector 8 -->
+          <details class="sector-block" id="catalogue">
+            <summary>
+              <span class="sector-count">SECTOR 08</span>
+              <span class="sector-label">Catalogue Public Records</span>
+              <span class="sector-tagline">&mdash; 100+ Official Registries, Dockets &amp; Sanctions</span>
+              <svg class="sector-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="sector-body">
+              <div class="frow">
+                <div class="frow-head">
+                  <div class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="5" rx="1"/><rect x="3" y="11" width="18" height="9" rx="1"/><line x1="9" y1="15" x2="15" y2="15"/></svg></div>
+                  <h3>One search across 100+ official registries</h3>
+                </div>
+                <p>Cross-reference SEC EDGAR, UK Companies House, OpenCorporates, OFAC Sanctions, and court dockets with direct provenance verification.</p>
+              </div>
+              <div style="margin-top:20px;">
+                <a href="panel.html#sector-catalogue" class="btn btn-primary">Open Catalogue Search &rarr;</a>
+              </div>
+            </div>
+          </details>
+
+          <!-- Sector 9 -->
+          <details class="sector-block" id="watchtower">
+            <summary>
+              <span class="sector-count">SECTOR 09</span>
+              <span class="sector-label">Watchtower Crisis &amp; Hazard Matrix</span>
+              <span class="sector-tagline">&mdash; Real-Time Live USGS Earthquakes, Aviation &amp; Maritime</span>
+              <svg class="sector-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="sector-body">
+              <div class="frow">
+                <div class="frow-head">
+                  <div class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><line x1="3" y1="12" x2="21" y2="12"/></svg></div>
+                  <h3>Live global situational awareness</h3>
+                </div>
+                <p>Pulls live data directly from official feeds: earthquakes via USGS GeoJSON, flight corridors via ADS-B networks, and maritime chokepoints.</p>
+              </div>
+              <div style="margin-top:20px;">
+                <a href="panel.html#sector-watchtower" class="btn btn-primary">Open Watchtower Feed &rarr;</a>
+              </div>
+            </div>
+          </details>
+
+          <!-- Sector 10 -->
+          <details class="sector-block" id="cases">
+            <summary>
+              <span class="sector-count">SECTOR 10</span>
+              <span class="sector-label">Cases Investigation Board</span>
+              <span class="sector-tagline">&mdash; Interactive Entity Link Chart &amp; Dossier Export</span>
+              <svg class="sector-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="sector-body">
+              <div class="frow">
+                <div class="frow-head">
+                  <div class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="6" cy="7" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="12" cy="17" r="2.4"/><line x1="8" y1="8.4" x2="10.4" y2="15"/><line x1="16.2" y1="7.8" x2="13.6" y2="15.2"/></svg></div>
+                  <h3>Every lead wired together on an interactive link chart</h3>
+                </div>
+                <p>Connect persons, phone numbers, crypto wallets, and vehicles with relationship arrows. Run "Smart Case Expansion" and export complete investigation dossiers.</p>
+              </div>
+              <div style="margin-top:20px;">
+                <a href="panel.html#sector-cases" class="btn btn-primary">Open Cases Board &rarr;</a>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- FREE ANNOUNCEMENT CTA -->
+    <section class="pad" id="free-access">
+      <div class="container">
+        <div class="free-announcement-card">
+          <span class="free-tag" style="font-size:12px;padding:6px 14px;margin-bottom:12px;">OPEN PLATFORM &middot; ZERO FEES</span>
+          <h2>Ready to start researching?</h2>
+          <p>Unlike commercial surveillance tools charging thousands of dollars per seat, YCH Live is completely free, privacy-first, and open for legitimate open-source research.</p>
+
+          <div class="free-features-pills">
+            <span class="free-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 250,000+ Cameras Unlocked</span>
+            <span class="free-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Unlimited Crypto Tracing</span>
+            <span class="free-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 50+ Platform Username Scanner</span>
+            <span class="free-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Full Cases Link Chart</span>
+            <span class="free-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> No Registration Required</span>
+          </div>
+
+          <div>
+            <a href="panel.html" class="btn btn-green btn-lg" style="font-size:17px;padding:18px 40px;">
+              Launch Full Free Console &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="pad" id="how">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">
+            <span class="eyebrow-badge">WORKFLOW</span>
+            <span>Three Simple Steps</span>
+          </div>
+          <h2>How to start investigating</h2>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <span class="ghost">01</span>
+            <div class="no">STEP 01</div>
+            <h3>Launch Console</h3>
+            <p>One click instant access in your web browser. No software installation, no credit cards, no login wall.</p>
+          </div>
+          <div class="step">
+            <span class="ghost">02</span>
+            <div class="no">STEP 02</div>
+            <h3>Select a Sector</h3>
+            <p>Choose Camera Globe for visual recon, Username OSINT for social discovery, Crypto Tracing for fund flows, or Hawk for image provenance.</p>
+          </div>
+          <div class="step">
+            <span class="ghost">03</span>
+            <div class="no">STEP 03</div>
+            <h3>Correlate &amp; Export</h3>
+            <p>Wire entities onto the Cases Board, trigger smart case expansion, and export your findings as comprehensive dossiers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUSTED OPEN DATA SOURCES -->
+    <section class="pad sources">
+      <div class="container">
+        <div class="section-head" style="margin-bottom:0;">
+          <div class="eyebrow">
+            <span class="eyebrow-badge">FOUNDATIONS</span>
+            <span>Built on Open Data</span>
+          </div>
+          <h2>Open protocols and public datasets</h2>
+        </div>
+        <div class="badges">
+          <span class="badge">OpenStreetMap</span>
+          <span class="badge">NASA Earth Observatory</span>
+          <span class="badge">USGS Earthquake Hazards</span>
+          <span class="badge">Cloudflare DNS-over-HTTPS</span>
+          <span class="badge">Ultralytics YOLOv8</span>
+          <span class="badge">Public Blockchains (BTC / ETH / SOL)</span>
+          <span class="badge">WebSDR Radio Receivers</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <div class="brand">
+            <span class="brand-mark">
+              <svg viewBox="0 0 32 32" width="24" height="24" fill="#fff"><path d="M31,16 L18.4,17 L21.66,21.66 L17,18.4 L16,31 L15,18.4 L10.34,21.66 L13.6,17 L1,16 L13.6,15 L10.34,10.34 L15,13.6 L16,1 L17,13.6 L21.66,10.34 L18.4,15 Z"/></svg>
+            </span>
+            <span class="brand-word">YCH LIVE</span>
+          </div>
+          <p>Unrestricted open-source research and intelligence platform for journalists, law enforcement, and researchers worldwide.</p>
+        </div>
+        <div class="foot-col">
+          <h4>Sectors</h4>
+          <a href="panel.html#sector-globe">Camera Globe</a>
+          <a href="panel.html#sector-username">Username OSINT</a>
+          <a href="panel.html#sector-crypto">Crypto Tracing</a>
+          <a href="panel.html#sector-netscan">NetScan Network</a>
+          <a href="panel.html#sector-hawk">Hawk Geolocation</a>
+        </div>
+        <div class="foot-col">
+          <h4>Intelligence</h4>
+          <a href="panel.html#sector-skywave">Skywave Radio</a>
+          <a href="panel.html#sector-linkscope">Linkscope</a>
+          <a href="panel.html#sector-catalogue">Catalogue Registries</a>
+          <a href="panel.html#sector-watchtower">Watchtower Crisis</a>
+          <a href="panel.html#sector-cases">Cases Board</a>
+        </div>
+        <div class="foot-col">
+          <h4>Tools</h4>
+          <a href="panel.html">Open Free Panel</a>
+          <a href="#preview">Live Simulator</a>
+          <a href="#globe">AI YOLOv8 Detection</a>
+          <a href="#wallet-trace">Mixer Detection</a>
+        </div>
+        <div class="foot-col">
+          <h4>Principles</h4>
+          <a href="#">Lawful OSINT</a>
+          <a href="#">Privacy-First</a>
+          <a href="#">Open Data</a>
+          <a href="#">Free Access</a>
+        </div>
+      </div>
+
+      <div class="foot-bottom">
+        <span>&copy; 2026 YCH Live. Free &amp; Open Source Platform.</span>
+        <span class="status"><span class="live-dot"></span> All 10 Sectors Operational &middot; No Restrictions</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/globe.js"></script>
+  <script src="js/landing.js"></script>
+  <script>
+    // Boot landing page globe centerpiece
+    document.addEventListener("DOMContentLoaded", function () {
+      var canvas = document.getElementById("northstar-globe");
+      if (canvas && window.NorthStarGlobe) {
+        NorthStarGlobe.create(canvas, {
+          onSelectCamera: function (cam) {
+            window.location.href = "panel.html#sector-globe";
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

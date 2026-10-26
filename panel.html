@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YCH Live - Intelligence & Research Console (Free Access)</title>
+  <meta name="theme-color" content="#030303" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M31,16 L18.4,17 L21.66,21.66 L17,18.4 L16,31 L15,18.4 L10.34,21.66 L13.6,17 L1,16 L13.6,15 L10.34,10.34 L15,13.6 L16,1 L17,13.6 L21.66,10.34 L18.4,15 Z' fill='%23ffffff'/%3E%3C/svg%3E" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/panel.css" />
+</head>
+<body class="panel-app">
+  <div class="ns-grain" aria-hidden="true"></div>
+
+  <!-- TOP HEADER -->
+  <header class="panel-header">
+    <div class="panel-brand">
+      <a href="index.html" style="display:flex;align-items:center;gap:10px;">
+        <svg viewBox="0 0 32 32" width="24" height="24" fill="#fff"><path d="M31,16 L18.4,17 L21.66,21.66 L17,18.4 L16,31 L15,18.4 L10.34,21.66 L13.6,17 L1,16 L13.6,15 L10.34,10.34 L15,13.6 L16,1 L17,13.6 L21.66,10.34 L18.4,15 Z"/></svg>
+        <span class="panel-brand-title">YCH LIVE CONSOLE</span>
+      </a>
+      <span class="panel-tag-free">UNRESTRICTED ACCESS</span>
+    </div>
+
+    <div class="panel-telemetry-clock" id="panelClock">
+      <span>UTC <b>00:00:00</b></span>
+    </div>
+
+    <div class="panel-header-actions">
+      <a href="index.html" class="btn btn-ghost panel-btn-sm">&larr; Return Home</a>
+      <button class="btn btn-primary panel-btn-sm" onclick="alert('Session status: Free Community License active. All 10 sectors unlocked.')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+        Status: Online
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN APPLICATION SHELL -->
+  <div class="panel-main">
+    <!-- LEFT SIDEBAR -->
+    <aside class="panel-sidebar">
+      <div class="panel-nav-group-title">RESEARCH SECTORS</div>
+
+      <button class="panel-nav-item active" data-target="sector-globe">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
+        <span>01 Camera Globe</span>
+        <span class="panel-nav-badge">250k+</span>
+      </button>
+
+      <button class="panel-nav-item" data-target="sector-username">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="7" r="3"/><path d="M7 11c-1-1.5-2-3.5-2-5 0-3.3 2.7-6 6-6s6 2.7 6 6c0 1.5-1 3.5-2 5"/><path d="M7 20h10c1.1 0 2-.9 2-2v-3c0-2.2-2.2-4-5-4h-4c-2.8 0-5 1.8-5 4v3c0 1.1.9 2 2 2z"/></svg>
+        <span>02 Username OSINT</span>
+        <span class="panel-nav-badge">50+</span>
+      </button>
+
+      <button class="panel-nav-item" data-target="sector-crypto">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20"/><circle cx="17.5" cy="14.5" r="1.5"/></svg>
+        <span>03 Crypto Tracing</span>
+        <span class="panel-nav-badge">22 Ch</span>
+      </button>
+
+      <button class="panel-nav-item" data-target="sector-netscan">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="7" rx="2"/><rect x="2" y="13" width="20" height="7" rx="2"/><line x1="6" y1="7.5" x2="6.01" y2="7.5"/></svg>
+        <span>04 NetScan Recon</span>
+      </button>
+
+      <button class="panel-nav-item" data-target="sector-hawk">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8.5c3.2-1.1 6-0.6 8.2 1.4"/><path d="M22 8.5c-3.2-1.1-6-0.6-8.2 1.4"/><circle cx="12" cy="12" r="3"/></svg>
+        <span>05 Hawk Geolocation</span>
+      </button>
+
+      <button class="panel-nav-item" data-target="sector-skywave">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h3l3-7 4 14 3-7h5"/></svg>
+        <span>06 Skywave Spectrum</span>
+        <span class="panel-nav-badge">SDR</span>
+      </button>
+
+      <button class="panel-nav-item" data-target="sector-linkscope">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.1 0l2.1-2.1a5 5 0 0 0-7.1-7.1L10.9 5"/><path d="M14 11a5 5 0 0 0-7.1 0l-2.1 2.1a5 5 0 0 0 7.1 7.1l1.2-1.2"/></svg>
+        <span>07 Linkscope Logs</span>
+      </button>
+
+      <button class="panel-nav-item" data-target="sector-catalogue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="5" rx="1"/><rect x="3" y="11" width="18" height="9" rx="1"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+        <span>08 Catalogue</span>
+        <span class="panel-nav-badge">100+</span>
+      </button>
+
+      <button class="panel-nav-item" data-target="sector-watchtower">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
+        <span>09 Watchtower Feeds</span>
+        <span class="panel-nav-badge" style="color:#00ff88;">LIVE</span>
+      </button>
+
+      <div class="panel-nav-group-title">INVESTIGATION SUITE</div>
+
+      <button class="panel-nav-item" data-target="sector-cases">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="7" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="12" cy="17" r="2.4"/><line x1="8" y1="8.4" x2="10.4" y2="15"/></svg>
+        <span>10 Cases Link Chart</span>
+      </button>
+    </aside>
+
+    <!-- MAIN WORKSPACE CONTENT -->
+    <main class="panel-content">
+      <!-- ================================================================ -->
+      <!-- SECTOR 1: CAMERA GLOBE & STREAM EXPLORER -->
+      <!-- ================================================================ -->
+      <div class="sector-pane active" id="sector-globe">
+        <div class="cam-pane-grid">
+          <!-- 3D Earth Globe Canvas -->
+          <div class="cam-globe-container">
+            <canvas id="panelGlobeCanvas"></canvas>
+
+            <!-- Floating Video Stream Player Window -->
+            <div class="cam-player-popup" id="camPlayerPopup" style="display:none;">
+              <div class="cam-player-header">
+                <span id="camPlayerTitle">CAM-01 // TIMES SQUARE</span>
+                <button onclick="document.getElementById('camPlayerPopup').style.display='none'" style="color:var(--text-2);">&times;</button>
+              </div>
+              <div class="cam-player-video-wrap">
+                <canvas id="camStreamCanvas" class="cam-canvas-player"></canvas>
+              </div>
+              <div class="cam-controls">
+                <span id="camPlayerMeta" style="color:var(--text-2);font-family:var(--font-mono);">New York &middot; 1080p @ 30 FPS</span>
+                <span style="color:#00ff88;font-weight:700;"><i class="ns-live-dot"></i> YOLOv8x DETECTING</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Camera list sidebar -->
+          <div class="cam-feed-sidebar">
+            <div class="cam-feed-search-box">
+              <input type="text" id="camSearchInput" class="cam-input" placeholder="Filter cameras by city, country or ID..." />
+            </div>
+            <div class="cam-list" id="camListContainer">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================ -->
+      <!-- SECTOR 2: USERNAME OSINT SCANNER -->
+      <!-- ================================================================ -->
+      <div class="sector-pane" id="sector-username">
+        <div class="sector-pane-head">
+          <div class="sector-pane-title">
+            <h2>
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#00f0ff" stroke-width="2"><circle cx="11" cy="7" r="3"/><path d="M7 11c-1-1.5-2-3.5-2-5 0-3.3 2.7-6 6-6s6 2.7 6 6c0 1.5-1 3.5-2 5"/><path d="M7 20h10c1.1 0 2-.9 2-2v-3c0-2.2-2.2-4-5-4h-4c-2.8 0-5 1.8-5 4v3c0 1.1.9 2 2 2z"/></svg>
+              Sector 02 // Multi-Platform Username Intelligence
+            </h2>
+            <p>Scan a single username across 50+ public social, code, video, and communication networks.</p>
+          </div>
+        </div>
+
+        <div class="osint-pane-body">
+          <form id="osintSearchForm" class="osint-search-bar">
+            <span style="color:var(--muted);font-family:var(--font-mono);">@</span>
+            <input type="text" id="osintUsernameInput" placeholder="Enter target handle (e.g. torvalds, satoshi, elonmusk)..." value="torvalds" required />
+            <button type="submit" class="btn btn-green btn-sm">Scan Handle Across 50+ Sites &rarr;</button>
+          </form>
+
+          <div class="osint-progress-bar" id="osintProgressWrap">
+            <div class="osint-progress-fill" id="osintProgressFill"></div>
+          </div>
+
+          <div class="osint-stats-bar">
+            <span>Identified Profiles: <b id="osintFoundCount">0</b></span>
+            <span>Platforms Checked: <b id="osintTotalCount">50</b></span>
+            <span>Method: <b>HTTP Response Analysis &amp; REST Query</b></span>
+          </div>
+
+          <div class="osint-results-grid" id="osintResultsGrid">
+            <!-- Dynamically populated cards -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================ -->
+      <!-- SECTOR 3: CRYPTO TRACING GRAPH -->
+      <!-- ================================================================ -->
+      <div class="sector-pane" id="sector-crypto">
+        <div class="sector-pane-head">
+          <div class="sector-pane-title">
+            <h2>
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#00ff88" stroke-width="2"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20"/><circle cx="17.5" cy="14.5" r="1.5"/></svg>
+              Sector 03 // Multi-Chain Fund Flow Tracer
+            </h2>
+            <p>Trace blockchain transfers hop-by-hop across Bitcoin, Ethereum, Solana, and EVM chains.</p>
+          </div>
+          <div style="display:flex;gap:10px;" id="cryptoSampleChips">
+            <!-- Quick Chips -->
+          </div>
+        </div>
+
+        <div class="crypto-pane-layout">
+          <div class="crypto-controls-bar">
+            <form id="cryptoSearchForm" style="display:flex;gap:10px;flex:1;">
+              <input type="text" id="cryptoAddressInput" class="cam-input" placeholder="Paste 0x... / bc1... / Solana wallet address..." style="max-width:520px;" />
+              <button type="submit" class="btn btn-primary btn-sm">Trace Wallet &rarr;</button>
+            </form>
+            <span style="font-size:12px;color:var(--text-2);font-family:var(--font-mono);">
+              Drag nodes to rearrange &middot; Click to inspect
+            </span>
+          </div>
+
+          <div class="crypto-graph-canvas-wrap">
+            <canvas id="cryptoGraphCanvas" class="crypto-graph-canvas"></canvas>
+
+            <div class="crypto-details-sidebar" id="cryptoDetailsPane">
+              <!-- Dynamically populated details -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================ -->
+      <!-- SECTOR 4: NETSCAN NETWORK RECON -->
+      <!-- ================================================================ -->
+      <div class="sector-pane" id="sector-netscan">
+        <div class="sector-pane-head">
+          <div class="sector-pane-title">
+            <h2>
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#00f0ff" stroke-width="2"><rect x="2" y="4" width="20" height="7" rx="2"/><rect x="2" y="13" width="20" height="7" rx="2"/></svg>
+              Sector 04 // NetScan Infrastructure &amp; DNS Mapper
+            </h2>
+            <p>Query live DNS-over-HTTPS, identify ASN owners, review exposed ports and Tor .onion targets.</p>
+          </div>
+        </div>
+
+        <div class="netscan-body">
+          <form id="netscanForm" class="netscan-search-wrap">
+            <input type="text" id="netscanTargetInput" class="cam-input" placeholder="Enter domain or IP (e.g. wikipedia.org, 1.1.1.1, or target.onion)..." value="wikipedia.org" required />
+            <button type="submit" class="btn btn-green btn-sm">Resolve &amp; Scan Host &rarr;</button>
+          </form>
+
+          <div class="netscan-results-box" id="netscanResultsBox">
+            <div style="padding:40px;grid-column:1/-1;text-align:center;color:var(--muted);font-family:var(--font-mono);">
+              Enter a domain or IP above to trigger live Cloudflare DNS-over-HTTPS and ASN lookups.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================ -->
+      <!-- SECTOR 5: HAWK IMAGE GEOLOCATION -->
+      <!-- ================================================================ -->
+      <div class="sector-pane" id="sector-hawk">
+        <div class="sector-pane-head">
+          <div class="sector-pane-title">
+            <h2>
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#00ff88" stroke-width="2"><path d="M2 8.5c3.2-1.1 6-0.6 8.2 1.4"/><path d="M22 8.5c-3.2-1.1-6-0.6-8.2 1.4"/><circle cx="12" cy="12" r="3"/></svg>
+              Sector 05 // Hawk Image Provenance &amp; Sun Angle Validator
+            </h2>
+            <p>Inspect EXIF GPS metadata, verify shadow angles against solar trajectory, and link to satellite maps.</p>
+          </div>
+          <div>
+            <button id="hawkSampleBtn" class="btn btn-ghost btn-sm">Load Sample Photo</button>
+          </div>
+        </div>
+
+        <div class="hawk-body">
+          <div class="hawk-dropzone" id="hawkDropzone">
+            <input type="file" id="hawkFileInput" accept="image/*" style="display:none;" />
+            <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.6" style="margin-bottom:12px;color:var(--text-2);"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <h3 style="font-size:1.15rem;margin-bottom:6px;">Drop an image here or click to browse</h3>
+            <p style="font-size:13px;color:var(--muted);">Supports JPEG, PNG, TIFF, HEIC &middot; Extracts GPS tags and calculates astronomical shadow ratios</p>
+          </div>
+
+          <div class="hawk-result-view" id="hawkResultView" style="display:none;">
+            <!-- Results dynamically inserted here -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================ -->
+      <!-- SECTOR 6: SKYWAVE RADIO SPECTRUM (SDR) -->
+      <!-- ================================================================ -->
+      <div class="sector-pane" id="sector-skywave">
+        <div class="sector-pane-head">
+          <div class="sector-pane-title">
+            <h2>
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#00ff88" stroke-width="2"><path d="M3 12h3l3-7 4 14 3-7h5"/></svg>
+              Sector 06 // Skywave Radio Spectrum &amp; WebSDR Receiver
+            </h2>
+            <p>Real-time radio frequency spectrum waterfall analyzer with live Web Audio HF static synthesis.</p>
+          </div>
+        </div>
+
+        <div class="skywave-body">
+          <div class="skywave-tuner-bar">
+            <div>
+              <label style="font-size:11px;color:var(--muted);text-transform:uppercase;display:block;margin-bottom:4px;">Frequency Tuner</label>
+              <div class="skywave-freq-display" id="skywaveFreqDisplay">156.800 MHz</div>
+            </div>
+
+            <div style="flex:1;">
+              <label style="font-size:11px;color:var(--muted);text-transform:uppercase;display:block;margin-bottom:4px;">Band Plan</label>
+              <select id="skywaveBandSelect" class="cam-input" style="width:280px;">
+                <option value="156.800">Marine Distress Ch 16 (156.800 MHz)</option>
+                <option value="121.500">International Air Emergency (121.500 MHz)</option>
+                <option value="14.230">Shortwave 20m SSTV (14.230 MHz)</option>
+                <option value="10.000">WWV Time Standard (10.000 MHz)</option>
+                <option value="7.074">40m FT8 Digital (7.074 MHz)</option>
+              </select>
+            </div>
+
+            <div>
+              <button id="skywaveListenBtn" class="btn btn-primary btn-sm">Start Audio Feed</button>
+            </div>
+          </div>
+
+          <div style="flex:1;position:relative;background:#000;">
+            <canvas id="skywaveWaterfallCanvas" class="skywave-waterfall-canvas"></canvas>
+            <div style="position:absolute;bottom:12px;left:20px;font-family:var(--font-mono);font-size:11px;color:var(--muted);">
+              Waterfall Scan Cadence: 30 FPS &middot; SDR Demodulation: FM / USB / AM &middot; Filter: Bandpass 1.2 kHz
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================ -->
+      <!-- SECTOR 7: LINKSCOPE ANALYTICS -->
+      <!-- ================================================================ -->
+      <div class="sector-pane" id="sector-linkscope">
+        <div class="sector-pane-head">
+          <div class="sector-pane-title">
+            <h2>
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#00f0ff" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.1 0l2.1-2.1a5 5 0 0 0-7.1-7.1L10.9 5"/><path d="M14 11a5 5 0 0 0-7.1 0l-2.1 2.1a5 5 0 0 0 7.1 7.1l1.2-1.2"/></svg>
+              Sector 07 // Linkscope Telemetry Generator
+            </h2>
+            <p>Generate authorized research links and monitor client fingerprint logs in real time.</p>
+          </div>
+        </div>
+
+        <div class="linkscope-body">
+          <div class="netscan-panel-card">
+            <h4>Generate Research Link</h4>
+            <div style="display:flex;gap:12px;margin-top:12px;">
+              <input type="text" class="cam-input" value="https://ychlive.io/doc/case-2026-evidence" readonly />
+              <button class="btn btn-primary btn-sm" onclick="alert('Copied tracking link: https://ychlive.io/doc/case-2026-evidence')">Copy Link</button>
+            </div>
+          </div>
+
+          <div class="netscan-panel-card">
+            <h4>Live Visitor Telemetry Feed</h4>
+            <table class="netscan-data-table" style="margin-top:10px;">
+              <tr style="font-weight:700;color:#fff;">
+                <td>Timestamp</td>
+                <td>IP &amp; ISP</td>
+                <td>Location</td>
+                <td>Platform / Browser</td>
+                <td>Referrer</td>
+              </tr>
+              <tr>
+                <td>14:32:09 UTC</td>
+                <td>198.51.100.44 (Verizon Business)</td>
+                <td>New York, US</td>
+                <td>macOS &middot; Chrome 128 (Apple Silicon)</td>
+                <td>Direct / Email Link</td>
+              </tr>
+              <tr>
+                <td>14:28:44 UTC</td>
+                <td>203.0.113.19 (NTT Communications)</td>
+                <td>Tokyo, JP</td>
+                <td>Windows 11 &middot; Firefox 130</td>
+                <td>x.com/t.co redirect</td>
+              </tr>
+              <tr>
+                <td>14:15:12 UTC</td>
+                <td>192.0.2.88 (Deutsche Telekom)</td>
+                <td>Frankfurt, DE</td>
+                <td>Linux x86_64 &middot; Brave</td>
+                <td>DuckDuckGo Search</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================ -->
+      <!-- SECTOR 8: CATALOGUE PUBLIC RECORDS -->
+      <!-- ================================================================ -->
+      <div class="sector-pane" id="sector-catalogue">
+        <div class="sector-pane-head">
+          <div class="sector-pane-title">
+            <h2>
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#ffd700" stroke-width="2"><rect x="3" y="4" width="18" height="5" rx="1"/><rect x="3" y="11" width="18" height="9" rx="1"/></svg>
+              Sector 08 // Catalogue Registry &amp; Sanctions Query
+            </h2>
+            <p>One unified query fanned out across 100+ public registries, company houses, and sanctions dockets.</p>
+          </div>
+        </div>
+
+        <div class="catalogue-body">
+          <div style="display:flex;gap:12px;">
+            <input type="text" class="cam-input" placeholder="Enter corporate entity, director name, or PEP identity..." value="Mercer Defense Technologies" />
+            <button class="btn btn-green btn-sm" onclick="alert('Catalogue query executed across 104 registries. 6 matches found.')">Search 104 Registries &rarr;</button>
+          </div>
+
+          <div class="netscan-results-box" style="margin-top:14px;">
+            <div class="netscan-panel-card">
+              <h4>UK Companies House Filing</h4>
+              <p style="font-size:13px;color:var(--text-2);margin-bottom:8px;">Company Number: <b>14892019</b> &middot; Status: Active</p>
+              <p style="font-size:12px;color:var(--muted);">Registered Office: 25 Bank Street, Canary Wharf, London, E14 5JP</p>
+            </div>
+            <div class="netscan-panel-card">
+              <h4>US SEC EDGAR 10-K Filings</h4>
+              <p style="font-size:13px;color:var(--text-2);margin-bottom:8px;">CIK: <b>0001894211</b> &middot; Standard Industrial Class: 3812</p>
+              <p style="font-size:12px;color:var(--muted);">Latest Form 8-K submitted 2026-09-15 &middot; Verified via SEC EDGAR API</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================ -->
+      <!-- SECTOR 9: WATCHTOWER CRISIS & HAZARDS -->
+      <!-- ================================================================ -->
+      <div class="sector-pane" id="sector-watchtower">
+        <div class="sector-pane-head">
+          <div class="sector-pane-title">
+            <h2>
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#00ff88" stroke-width="2"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
+              Sector 09 // Watchtower Real-Time Global Hazard Matrix
+            </h2>
+            <p>Live earthquake feeds directly from official USGS APIs, global flight radar, and shipping corridors.</p>
+          </div>
+        </div>
+
+        <div class="watchtower-body">
+          <div class="watchtower-map-area" id="watchtowerMap">
+            <!-- Simulated Global Map Plot -->
+            <div style="padding:30px;color:var(--text-2);font-family:var(--font-mono);font-size:12px;">
+              <div style="color:#00ff88;font-size:14px;font-weight:700;margin-bottom:12px;">WATCHTOWER SITUATION MAP // REAL-TIME GEOPHYSICAL MONITOR</div>
+              <p>Active Sensors: 1,480 Global Seismographs &middot; 48 Ocean Buoys &middot; 24 Satellite Orbits</p>
+              <div style="margin-top:20px;border:1px solid var(--line);border-radius:12px;padding:24px;background:#05070a;line-height:2;">
+                <div>[USGS API STATUS]: <span style="color:#00ff88;">STREAMING LIVE</span></div>
+                <div>[SOLAR STORM Kp-INDEX]: <span style="color:#00f0ff;">Kp 2.3 (Quiet geomagnetic conditions)</span></div>
+                <div>[MARITIME AIS TRACKER]: <span style="color:#ffd700;">84,290 Vessels Transmitting</span></div>
+                <div>[AIRLINE ADS-B FLIGHTS]: <span style="color:#fff;">14,192 Aircraft in Airspace</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="watchtower-feed-list" id="watchtowerFeedList">
+            <!-- Dynamically populated via real USGS API -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================ -->
+      <!-- SECTOR 10: CASES INVESTIGATION BOARD -->
+      <!-- ================================================================ -->
+      <div class="sector-pane" id="sector-cases">
+        <div class="cases-pane-layout">
+          <div class="cases-toolbar">
+            <div class="cases-tool-group">
+              <span style="font-weight:700;font-size:13px;margin-right:12px;">CASE #2026-MERIDIAN</span>
+              <button id="casesAddPersonBtn" class="btn btn-ghost btn-sm">+ Add Entity</button>
+              <button id="casesExpandBtn" class="btn btn-ghost btn-sm" style="color:#00ff88;">Smart Expansion</button>
+            </div>
+            <div class="cases-tool-group">
+              <button id="casesExportBtn" class="btn btn-primary btn-sm">Export Dossier (JSON)</button>
+            </div>
+          </div>
+
+          <div class="cases-canvas-wrap">
+            <canvas id="casesGraphCanvas" class="cases-canvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/globe.js"></script>
+  <script src="js/panel.js"></script>
+</body>
+</html>
