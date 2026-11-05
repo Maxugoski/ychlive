@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YCH Live - Reverse Face Search</title>
+  <meta name="description" content="Proof-of-concept reverse face-search engine: upload a face image, extract its biometric vector, and match against a seeded profile index." />
+  <meta name="theme-color" content="#050505" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M31,16 L18.4,17 L21.66,21.66 L17,18.4 L16,31 L15,18.4 L10.34,21.66 L13.6,17 L1,16 L13.6,15 L10.34,10.34 L15,13.6 L16,1 L17,13.6 L21.66,10.34 L18.4,15 Z' fill='%23ffffff'/%3E%3C/svg%3E" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/search.css" />
+</head>
+<body>
+  <div class="bg-fx" aria-hidden="true"></div>
+  <div class="ns-grain" aria-hidden="true"></div>
+
+  <!-- NAVIGATION (shared) -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand" aria-label="YCH Live Home">
+        <span class="brand-mark">
+          <svg viewBox="0 0 32 32" width="28" height="28" fill="#fff"><path d="M31,16 L18.4,17 L21.66,21.66 L17,18.4 L16,31 L15,18.4 L10.34,21.66 L13.6,17 L1,16 L13.6,15 L10.34,10.34 L15,13.6 L16,1 L17,13.6 L21.66,10.34 L18.4,15 Z"/></svg>
+        </span>
+        <span class="brand-word">YCH LIVE</span>
+        <span class="free-tag">POC</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#features">Sectors</a>
+        <a href="panel.html">Console</a>
+        <a href="search.html" class="is-active">Face Search</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="index.html" class="btn btn-ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></svg>
+          Back
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="search-main container">
+    <!-- STATUS STRIP -->
+    <div class="fs-status-strip" id="fsStatusStrip">
+      <span class="fs-status-left">
+        <span class="fs-status-dot" id="fsStatusDot"></span>
+        <span id="fsStatusText">Checking engine&hellip;</span>
+      </span>
+      <span class="fs-status-right">
+        <span>ENGINE&nbsp;<b id="fsBackend">&mdash;</b></span>
+        <span>INDEX&nbsp;<b id="fsIndexKind">&mdash;</b></span>
+        <span>PROFILES&nbsp;<b id="fsProfileCount">0</b></span>
+        <button class="fs-api-edit" id="fsApiEditBtn" title="Change API base URL">API&nbsp;<b id="fsApiBase"></b></button>
+      </span>
+    </div>
+    <div class="fs-api-panel" id="fsApiPanel" hidden>
+      <label for="fsApiInput">Backend API base URL</label>
+      <div class="fs-api-row">
+        <input type="text" id="fsApiInput" placeholder="http://127.0.0.1:8400" />
+        <button class="btn btn-primary btn-sm" id="fsApiSave">Save &amp; Reconnect</button>
+      </div>
+    </div>
+
+    <div class="fs-head">
+      <div class="eyebrow">
+        <span class="eyebrow-badge">BIOMETRIC RECON</span>
+        <span>Reverse Face Search</span>
+      </div>
+      <h1>Who is this face?<span class="fs-sub">Search a locally indexed profile database by facial biometric vector.</span></h1>
+    </div>
+
+    <!-- MODE TABS -->
+    <div class="fs-tabs" role="tablist" aria-label="Mode Selector">
+      <button class="fs-tab active" id="tabSearch" role="tab" aria-selected="true" aria-controls="panelSearch">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        Reverse Search
+      </button>
+      <button class="fs-tab" id="tabSeed" role="tab" aria-selected="false" aria-controls="panelSeed">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+        Seed Mode
+      </button>
+    </div>
+
+    <!-- ===================== PANEL: SEARCH ===================== -->
+    <section class="fs-panel" id="panelSearch" role="tabpanel" aria-labelledby="tabSearch">
+      <div class="fs-grid">
+        <div class="fs-col">
+          <div class="fs-drop" id="fsDrop" tabindex="0" role="button" aria-label="Upload query image">
+            <input type="file" id="fsFile" accept=".jpg,.jpeg,.png,image/jpeg,image/png" hidden />
+            <div class="fs-drop-inner" id="fsDropInner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 9l5-5 5 5"/><path d="M12 4v12"/></svg>
+              <p><b>Drop a face image here</b> or click to browse</p>
+              <span class="fs-drop-hint">.jpg / .png &middot; processed in-memory &middot; query images are never stored</span>
+            </div>
+            <div class="fs-preview" id="fsPreview" hidden>
+              <div class="fs-preview-wrap">
+                <img id="fsPreviewImg" alt="Query preview" />
+                <div class="fs-face-box" id="fsFaceBox" hidden></div>
+              </div>
+              <button class="fs-clear" id="fsClear" aria-label="Remove image">&#10005;</button>
+            </div>
+          </div>
+
+          <div class="fs-options">
+            <label class="fs-opt">
+              <span>Max results <b id="fsLimitVal">5</b></span>
+              <input type="range" id="fsLimit" min="1" max="5" value="5" />
+            </label>
+            <label class="fs-opt">
+              <span>Min confidence <b id="fsThreshVal">0.80</b></span>
+              <input type="range" id="fsThreshold" min="0.5" max="0.95" step="0.01" value="0.8" />
+            </label>
+          </div>
+
+          <button class="btn btn-green fs-run" id="fsSearchBtn" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            <span id="fsSearchLabel">Run Face Search</span>
+          </button>
+          <p class="fs-error" id="fsSearchError" hidden></p>
+        </div>
+
+        <div class="fs-col">
+          <div class="fs-results-head">
+            <h2>Matches</h2>
+            <span class="fs-results-msg" id="fsResultsMsg">Index a few profiles in Seed Mode, then upload a query face.</span>
+          </div>
+          <div class="fs-results" id="fsResults">
+            <div class="fs-empty" id="fsResultsEmpty">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+              <p>No query executed yet</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PANEL: SEED ===================== -->
+    <section class="fs-panel" id="panelSeed" role="tabpanel" aria-labelledby="tabSeed" hidden>
+      <div class="fs-grid">
+        <div class="fs-col">
+          <h2 class="fs-col-title">Add a profile to the index</h2>
+          <div class="fs-drop fs-drop-sm" id="sdDrop" tabindex="0" role="button" aria-label="Upload seed image">
+            <input type="file" id="sdFile" accept=".jpg,.jpeg,.png,image/jpeg,image/png" hidden />
+            <div class="fs-drop-inner" id="sdDropInner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 9l5-5 5 5"/><path d="M12 4v12"/></svg>
+              <p><b>Seed portrait</b> &mdash; click or drop</p>
+            </div>
+            <div class="fs-preview" id="sdPreview" hidden>
+              <div class="fs-preview-wrap"><img id="sdPreviewImg" alt="Seed preview" /></div>
+              <button class="fs-clear" id="sdClear" aria-label="Remove image">&#10005;</button>
+            </div>
+          </div>
+
+          <form id="sdForm" class="sd-form" autocomplete="off">
+            <label>Full name <em>*</em>
+              <input type="text" id="sdName" required placeholder="Jane Doe" />
+            </label>
+            <label>Social handle
+              <input type="text" id="sdHandle" placeholder="@janedoe" />
+            </label>
+            <label>Source / profile URL
+              <input type="url" id="sdUrl" placeholder="https://example.com/janedoe" />
+            </label>
+            <button type="submit" class="btn btn-primary btn-block" id="sdSubmit">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+              Index This Face
+            </button>
+            <p class="fs-error" id="sdError" hidden></p>
+            <p class="fs-success" id="sdSuccess" hidden></p>
+          </form>
+        </div>
+
+        <div class="fs-col">
+          <div class="fs-results-head">
+            <h2>Indexed profiles</h2>
+            <button class="fs-refresh" id="sdRefresh" aria-label="Refresh profile list">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v6h-6"/></svg>
+            </button>
+          </div>
+          <div class="fs-results" id="sdList">
+            <div class="fs-empty"><p>Index is empty.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESPONSIBLE USE NOTE -->
+    <p class="fs-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="13"/><circle cx="12" cy="16.2" r="0.6" fill="currentColor"/></svg>
+      Demonstration only. The index contains exclusively records you seed yourself. Facial recognition of people without consent is restricted or unlawful in many jurisdictions &mdash; use lawfully and verify every match independently.
+    </p>
+  </main>
+
+  <script src="js/search.js"></script>
+</body>
+</html>

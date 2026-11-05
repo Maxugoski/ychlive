@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+python-multipart
+numpy
+# OpenCV 4.x (5.x removed CascadeClassifier/Haar; 4.x bundles the cascades so
+# the no-dlib fallback works out of the box). Use headless build on servers.
+opencv-python-headless>=4.9,<5.0
+# Optional but preferred: dlib-based 128-d face encodings (spec's primary engine).
+# Needs a C++ toolchain / prebuilt wheel on Windows, so it is NOT installed by
+# default. To enable: pip install face_recognition  (see README). The app
+# auto-falls back to the OpenCV detector above when dlib is absent.
+# face_recognition
+# Optional external vector DB. If unset/unreachable, a local numpy index is used.
+qdrant-client

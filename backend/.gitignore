@@ -1,0 +1,11 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Generated data stores (recreated at runtime)
+faces.db
+vectors.npz
+
+# Optional local model files (e.g. YuNet ONNX) placed by the user
+models/
