@@ -9,3 +9,5 @@ vectors.npz
 
 # Optional local model files (e.g. YuNet ONNX) placed by the user
 models/
+
+.env
